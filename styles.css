@@ -15,3 +15,13 @@ img {
 .scene {
   overflow: hidden;
 }
+
+.container {
+  width: 100vw;
+  height: 50vw;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
