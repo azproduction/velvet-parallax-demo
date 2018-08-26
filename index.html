@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Velvet, Odin Sphere Parallax demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="Velvet, Odin Sphere Parallax demo">
+	<meta name="keywords" content="Velvet, Odin, Sphere, Parallax, Cosplay">
+	<meta property="og:title" content="Velvet Parallax">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://azproduction.me/">
+	<meta property="og:image" content="velvet-parallax-demo.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1210">
+	<meta property="og:image:height" content="683">
+	<meta property="og:image:alt" content="Velvet Parallax">
+	<meta property="og:description" content="Velvet, Odin Sphere Parallax demo">
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+	<div class="container">
+		<div id="scene"
+			 class="scene"
+			 data-friction-x="0.1"
+			 data-friction-y="0.1"
+			 data-scalar-x="25"
+			 data-scalar-y="15">
+			<div class="layer" data-depth="-0.32">
+				<img src="layer_-4.jpg">
+			</div>
+			<div class="layer" data-depth="-0.24">
+				<img src="layer_-3.png">
+			</div>
+			<div class="layer" data-depth="-0.16">
+				<img src="layer_-2.png">
+			</div>
+			<div class="layer" data-depth="-0.08">
+				<img src="layer_-1.png">
+			</div>
+			<div class="layer" data-depth="+0.00">
+				<img src="layer_+0.png">
+			</div>
+			<div class="layer" data-depth="+0.04">
+				<img src="layer_+1.png">
+			</div>
+			<div class="layer" data-depth="+0.16">
+				<img src="layer_+2.png">
+			</div>
+			<div class="layer" data-depth="+0.24">
+				<img src="layer_+3.png">
+			</div>
+			<div class="layer" data-depth="+0.32">
+				<img src="layer_+4.png">
+			</div>
+			<div class="layer" data-depth="+0.40">
+				<img src="layer_+5.png">
+			</div>
+		</div>
+	</div>
+
+	<script src="./parallax.min.js"></script>
+	<script>
+
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+
+	</script>
+
+</body>
+</html>
