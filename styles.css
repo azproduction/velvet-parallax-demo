@@ -24,4 +24,41 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+
+.container_hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.loading {
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 10vw;
+  color: #fff;
+}
+
+.loading_hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.loading__crystal {
+  color: red;
+  animation: 2s ease-out infinite alternate loadingAnimation;
 }
