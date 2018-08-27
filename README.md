@@ -6,7 +6,7 @@ https://azproduction.github.io/velvet-parallax-demo/
 
 ## How it works
 
-![Parallax planes](https://azproduction.github.io/velvet-parallax-demo/velvet-parallax-how-it-works.jpg)
+![Parallax planes](velvet-parallax-how-it-works.jpg)
 
 ## Credits
 
