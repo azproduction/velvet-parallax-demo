@@ -112,14 +112,15 @@
       return DeviceMotionEvent.requestPermission().then(function (result) {
         if (result !== 'granted') {
           document.querySelector('.disclaimer').classList.remove('disclaimer_hidden');
+          return;
         }
 
         restart();
       });
     });
-  } else {
-    restart();
   }
+
+  restart();
 </script>
 
 </body>
