@@ -89,18 +89,14 @@
 
 <script src="./parallax.min.js"></script>
 <script>
-  Promise.resolve().then(function () {
-    if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-      return DeviceMotionEvent.requestPermission();
-    }
+  function restart() {
+    var scene = document.getElementById('scene');
 
-    return Promise.resolve('granted');
-  }).then(function (result) {
-    if (result !== 'granted') {
-      document.querySelector('.disclaimer').classList.remove('disclaimer_hidden');
-      return;
+    if (scene.parallax) {
+      scene.parallax.destroy();
     }
-  });
+    scene.parallax = new Parallax(scene);
+  }
 
   window.addEventListener('load', function () {
     setTimeout(function () {
@@ -109,7 +105,22 @@
     }, 2000);
   });
 
-  new Parallax(document.getElementById('scene'));
+  if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+    document.body.addEventListener('click', function onClick() {
+      document.body.removeEventListener('click', onClick);
+
+      return DeviceMotionEvent.requestPermission().then(function (result) {
+        if (result !== 'granted') {
+          document.querySelector('.disclaimer').classList.remove('disclaimer_hidden');
+          return;
+        }
+
+        restart();
+      });
+    });
+  }
+
+  restart();
 </script>
 
 </body>
