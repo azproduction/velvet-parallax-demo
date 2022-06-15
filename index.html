@@ -105,12 +105,20 @@
     }, 2000);
   });
 
-  if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+  if (
+    typeof DeviceMotionEvent !== 'undefined' &&
+    typeof DeviceMotionEvent.requestPermission === 'function' &&
+    typeof DeviceOrientationEvent !== 'undefined' &&
+    typeof DeviceOrientationEvent.requestPermission === 'function'
+  ) {
     document.body.addEventListener('click', function onClick() {
       document.body.removeEventListener('click', onClick);
 
-      return DeviceMotionEvent.requestPermission().then(function (result) {
-        if (result !== 'granted') {
+      Promise.all([
+        DeviceMotionEvent.requestPermission(),
+        DeviceOrientationEvent.requestPermission()
+      ]).then(function ([resultA, resultB]) {
+        if (resultA !== 'granted' || resultB !== 'granted') {
           document.querySelector('.disclaimer').classList.remove('disclaimer_hidden');
           return;
         }
