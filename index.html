@@ -83,16 +83,33 @@
   </div>
 </div>
 
+<div class="disclaimer disclaimer_hidden">
+  Gyroscope is not supported
+</div>
+
 <script src="./parallax.min.js"></script>
 <script>
+  Promise.resolve().then(function () {
+    if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
+      return DeviceMotionEvent.requestPermission();
+    }
+
+    return Promise.resolve('granted');
+  }).then(function (result) {
+    if (result !== 'granted') {
+      document.querySelector('.disclaimer').classList.remove('disclaimer_hidden');
+      return;
+    }
+  });
+
   window.addEventListener('load', function () {
     setTimeout(function () {
       document.querySelector('#container').classList.remove('container_hidden');
       document.querySelector('#loading').classList.add('loading_hidden');
     }, 2000);
   });
-  var scene = document.getElementById('scene');
-  var parallax = new Parallax(scene);
+
+  new Parallax(document.getElementById('scene'));
 </script>
 
 </body>

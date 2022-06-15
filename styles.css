@@ -49,6 +49,22 @@ img {
   opacity: 0;
 }
 
+.disclaimer {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #fff;
+  pointer-events: none;
+}
+
+.disclaimer_hidden {
+  opacity: 0;
+}
+
 @keyframes loadingAnimation {
   0% {
     opacity: 1;
